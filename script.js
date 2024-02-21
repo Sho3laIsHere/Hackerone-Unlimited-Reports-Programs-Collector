@@ -212,7 +212,7 @@ async function fetchProgramData(program) {
         } else {
             data.data.team.type = "VDP 🌟";
         }
-        return `<a href="https://hackerone.com/${program.handle}?type=team">${program.handle}</a> | ${data.data.team.type}`;
+        return `<a href="https://hackerone.com/${program.handle}?type=team" target="_blank">${program.handle}</a> | ${data.data.team.type}`;
     } else {
         return null;
     }
