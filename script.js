@@ -209,8 +209,10 @@ async function fetchProgramData(program) {
     if (data.data.me.remaining_reports == null) {
         if (data.data.team.type.includes("Bounty")) {
             data.data.team.type = "BBP 💸";
-        } else {
+        } else if(data.data.team.type.includes("Disclosure")) {
             data.data.team.type = "VDP 🌟";
+        } else {
+            data.data.team.type = "Private Program 💸🌟"
         }
         return `<a href="https://hackerone.com/${program.handle}?type=team" target="_blank">${program.handle}</a> | ${data.data.team.type}`;
     } else {
