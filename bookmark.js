@@ -149,7 +149,7 @@ javascript:(function() {
 
     setInterval(function(){
         if(check){
-            const content = array.map(program => `${program}`).join('<br>');
+            const content = array.map(program => `${program}`).join('<br><br>');
 
             window.open().document.write(`<html>
             <head><title>Hackerone Unlimited Reports Programs Collector | Made With Love By Sho3la ❤</title></head>
