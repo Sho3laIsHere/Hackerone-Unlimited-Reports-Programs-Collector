@@ -221,8 +221,80 @@ javascript:(function() {
                     data.data.team.type = "VDP 🌟";
                 } else {
                     data.data.team.type = "Private Program 💸🌟"
-                }
-                return `<a href="https://hackerone.com/${program.handle}?type=team" target="_blank">${program.handle}</a> | ${data.data.team.type} | ${Math.round(data.data.team.most_recent_sla_snapshot.first_response_time / 24)} Days To First Response | ${Math.round(data.data.team.most_recent_sla_snapshot.triage_time / 24)} Days To Triage Time | ${Math.round(data.data.team.most_recent_sla_snapshot.bounty_time / 24)} Days To Bounty Time | ${Math.round(data.data.team.most_recent_sla_snapshot.resolution_time / 24)} Days To Resolution Time`;
+                };
+let response_time = Math.round(data.data.team.most_recent_sla_snapshot.first_response_time);
+let response_duration = "Hours";
+let triage_time = Math.round(data.data.team.most_recent_sla_snapshot.triage_time);
+let triage_duration = "Hours";
+let bounty_time = Math.round(data.data.team.most_recent_sla_snapshot.bounty_time);
+let bounty_duration= "Hours";
+let resolution_time = Math.round(data.data.team.most_recent_sla_snapshot.resolution_time);
+let resolution_duration = "Hours";
+if(data.data.team.most_recent_sla_snapshot.first_response_time >= 24){
+    response_time = Math.round(data.data.team.most_recent_sla_snapshot.first_response_time / 24);
+    if(response_time == 1){
+    response_duration = "Day";
+} else {
+    response_duration = "Days";
+    }
+} 
+if(data.data.team.most_recent_sla_snapshot.triage_time >= 24){
+    triage_time = Math.round(data.data.team.most_recent_sla_snapshot.triage_time / 24);
+    if(triage_time == 1){
+    triage_duration = "Day";
+} else {
+    triage_duration = "Days";
+    }
+} 
+if(data.data.team.most_recent_sla_snapshot.bounty_time >= 24){
+    bounty_time = Math.round(data.data.team.most_recent_sla_snapshot.bounty_time / 24);
+    if(bounty_time == 1){
+    bounty_duration = "Day";
+} else {
+    bounty_duration = "Days";
+    }
+} 
+if(data.data.team.most_recent_sla_snapshot.resolution_time >= 24){
+    resolution_time = Math.round(data.data.team.most_recent_sla_snapshot.resolution_time / 24);
+    if(resolution_time == 1){
+    resolution_duration = "Day";
+} else {
+    resolution_duration = "Days";
+    }
+} 
+if(data.data.team.most_recent_sla_snapshot.first_response_time >= 720 ){
+    response_time = Math.round(response_time / 30);
+    if(response_time == 1){
+    response_duration = "Month";
+} else {
+    response_duration = "Months";
+    }
+} 
+if(data.data.team.most_recent_sla_snapshot.triage_time >= 720){
+    triage_time = Math.round(triage_time / 30);
+    if(triage_time == 1){
+    triage_duration = "Month";
+} else {
+    triage_duration = "Months";
+    }
+} 
+if(data.data.team.most_recent_sla_snapshot.bounty_time >= 720 ){
+    bounty_time = Math.round(bounty_time / 30);
+    if(bounty_time == 1){
+    bounty_duration = "Month";
+} else {
+    bounty_duration = "Months";
+    }
+} 
+if(data.data.team.most_recent_sla_snapshot.resolution_time >= 720 ){
+    resolution_time = Math.round(resolution_time / 30);
+    if(resolution_time == 1){
+    resolution_duration = "Month";
+} else {
+    resolution_duration = "Months";
+    }
+} 
+                return `<a href="https://hackerone.com/${program.handle}?type=team" target="_blank">${program.handle}</a> | ${data.data.team.type} | ${response_time ?? "null"} ${response_duration} To First Response | ${triage_time ?? "null"} ${triage_duration} To Triage Time | ${bounty_time ?? "null"} ${bounty_duration} To Bounty Time | ${resolution_time ?? "null"} ${resolution_duration} To Resolution Time`;
             } else {
                 return null;
             }
