@@ -222,7 +222,6 @@ javascript:(function() {
                 } else {
                     data.data.team.type = "Private Program 💸🌟"
                 }
-if()
                 return `<a href="https://hackerone.com/${program.handle}?type=team" target="_blank">${program.handle}</a> | ${data.data.team.type} | ${Math.round(data.data.team.most_recent_sla_snapshot.first_response_time / 24)} Days To First Response | ${Math.round(data.data.team.most_recent_sla_snapshot.triage_time / 24)} Days To Triage Time | ${Math.round(data.data.team.most_recent_sla_snapshot.bounty_time / 24)} Days To Bounty Time | ${Math.round(data.data.team.most_recent_sla_snapshot.resolution_time / 24)} Days To Resolution Time`;
             } else {
                 return null;
