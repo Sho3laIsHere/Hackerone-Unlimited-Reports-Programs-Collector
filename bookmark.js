@@ -294,7 +294,7 @@ if(data.data.team.most_recent_sla_snapshot.resolution_time >= 720 ){
     resolution_duration = "Months";
     }
 } 
-                return `<a href="https://hackerone.com/${program.handle}?type=team" target="_blank">${program.handle}</a> | ${data.data.team.type} | ${response_time ?? "null"} ${response_duration} To First Response | ${triage_time ?? "null"} ${triage_duration} To Triage Time | ${bounty_time ?? "null"} ${bounty_duration} To Bounty Time | ${resolution_time ?? "null"} ${resolution_duration} To Resolution Time`;
+                return `<a href="https://hackerone.com/${program.handle}?type=team" target="_blank">${program.handle}</a> | ${data.data.team.type} | ${response_time ?? "null"} ${response_duration} To First Response ⏳ | ${triage_time ?? "null"} ${triage_duration} To Triage Time 🔥 | ${bounty_time ?? "null"} ${bounty_duration} To Bounty Time 💲 | ${resolution_time ?? "null"} ${resolution_duration} To Resolution Time ✅`;
             } else {
                 return null;
             }
